@@ -1,12 +1,14 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-('import Logo from "../../img/Cars4RentLogo.img";');
+import img from "../../../public/Cars-For-Rent-Logo.jpg";
 const Header = () => {
   const location = useLocation();
   return (
     <header>
       <nav>
-        <Link to="/">Logo</Link>
+        <Link to="/">
+          <img src={img} alt="logo" />
+        </Link>
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
