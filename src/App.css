@@ -5,6 +5,32 @@
   text-align: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

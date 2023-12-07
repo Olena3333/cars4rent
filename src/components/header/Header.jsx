@@ -1,15 +1,16 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import img from "../../../public/Cars-For-Rent-Logo.jpg";
+import { StyledHeaderList, StyledHederWrapper } from "./Header.Styled";
 const Header = () => {
   const location = useLocation();
   return (
     <header>
-      <nav>
+      <StyledHederWrapper>
         <Link to="/">
           <img src={img} alt="logo" />
         </Link>
-        <ul>
+        <StyledHeaderList>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -23,8 +24,8 @@ const Header = () => {
               Favorites
             </NavLink>
           </li>
-        </ul>
-      </nav>
+        </StyledHeaderList>
+      </StyledHederWrapper>
     </header>
   );
 };
