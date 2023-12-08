@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import img from "../../../public/car.jpg";
-import imgroad from "../../../public/road.jpg";
+import img from "/car.jpg";
+import imgroad from "/road.jpg";
 import svgIcon from "../../img/svg/pinboard.svg";
 
 export const StyledSectionHero = styled.section`
   background-image: url(${img});
   background-size: cover;
-  padding-top: 112px;
-  padding-bottom: 112px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 `;
 export const StyledHeroTitle = styled.h1`
   color: var(--White);
