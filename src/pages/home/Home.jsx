@@ -27,9 +27,9 @@ const Home = () => {
           <StyledAdvantagesTitle>Our Advantages</StyledAdvantagesTitle>
           <StyledAdvantagesList>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="20" height="20">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 We offer a vast selection of cars for rent, as on the RENTAL
                 site you can choose from more than 250 cars. Thanks to this, you
@@ -38,18 +38,18 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="20" height="20">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Only new cars - all cars for rent that we offer our customers
                 are not older than three years.
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="20" height="20">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Wide price range and constant actions and discounts on car
                 rental services. At the RENTAL site, everyone can find a car for
@@ -59,9 +59,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Rent a car in a few clicks. Choose the car you need, the period
                 you want to rent a car, and leave your contact phone number. Our
@@ -70,9 +70,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Car rental services work 24/7 without holidays and weekends. Our
                 managers are ready to help you rent a car at any time of the day
@@ -80,18 +80,18 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Targeted delivery of the rented car. You do not need to go
                 somewhere to rent a car.
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Delivery of cars to any place in Ukraine. You do not need to
                 come to the office to rent a car. All you need is just to name
@@ -101,9 +101,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 We take care of our clients' time. Even the car rental process
                 without a deposit at the company RENTAL takes 5-10 minutes,
@@ -111,9 +111,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Concierge Service. In addition to the car rental itself, our
                 services include 24-hour support for any questions. We are ready
@@ -123,9 +123,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 Technical support 24/7. No matter what happens on the road,
                 whether it's a punctured tire or a dead battery, our experts are
@@ -133,9 +133,9 @@ const Home = () => {
               </p>
             </StyledAdvantagesListItem>
             <StyledAdvantagesListItem>
-              <StyledAdvantagesIcon width="20" height="20">
+              {/* <StyledAdvantagesIcon width="15" height="15">
                 <use href={`${sprite}#icon-pencil`} />
-              </StyledAdvantagesIcon>
+              </StyledAdvantagesIcon> */}
               <p>
                 A fully equipped and sanitized car for rent that undergoes
                 regular maintenance.

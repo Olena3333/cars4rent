@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import img from "../../../public/car.jpg";
 import imgroad from "../../../public/road.jpg";
+import svgIcon from "../../img/svg/pinboard.svg";
+
 export const StyledSectionHero = styled.section`
   background-image: url(${img});
   background-size: cover;
@@ -54,14 +56,18 @@ export const StyledAdvantagesList = styled.ul`
   padding-left: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
 `;
 export const StyledAdvantagesListItem = styled.li`
   display: flex;
-  gap: 10px;
-  /* p {
-    margin-left: 14px;
-  } */
+  gap: 36px;
+  p {
+    font-size: 26px;
+  }
+  &:before {
+    content: url(${svgIcon});
+    stroke: var(--accent-color);
+  }
 `;
 export const StyledAdvantagesIcon = styled.svg`
   fill: var(--accent-color);
