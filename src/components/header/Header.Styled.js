@@ -12,7 +12,7 @@ export const StyledHederWrapper = styled.div`
     padding: 20px;
     flex-wrap: nowrap;
     gap: 30px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
 `;

@@ -76,20 +76,21 @@ export const StyledForYouList = styled.ul`
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: space-around;
   background-image: url(${imgroad});
   background-size: cover;
   gap: 40px;
   max-width: 375px;
   padding: 20px 20px;
   margin: 10px 20px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 425px) {
     margin: 40px;
     padding: 100px 40px;
     display: grid;
+    flex-wrap: nowrap;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     flex-direction: column;
     align-items: start;
+    max-width: 1440px;
   }
 `;
 export const StyledForYouListItem = styled.li`
@@ -101,7 +102,7 @@ export const StyledForYouListItem = styled.li`
     font-weight: 700;
     line-height: 1.11;
     letter-spacing: 0.72px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 425px) {
       font-size: 36px;
     }
   }
