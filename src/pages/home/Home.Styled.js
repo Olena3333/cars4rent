@@ -72,28 +72,38 @@ export const StyledSectionForYou = styled.section`
   padding-bottom: 48px;
 `;
 export const StyledForYouList = styled.ul`
-  padding: 100px 40px;
   color: var(--White);
-  display: grid;
-  gap: 20px;
-  align-items: start;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  flex-direction: column;
-  gap: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background-image: url(${imgroad});
   background-size: cover;
-  margin: 40px;
+  gap: 40px;
+  max-width: 375px;
+  padding: 20px 20px;
+  margin: 10px 20px;
+  @media screen and (min-width: 768px) {
+    margin: 40px;
+    padding: 100px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    flex-direction: column;
+    align-items: start;
+  }
 `;
 export const StyledForYouListItem = styled.li`
   h3 {
     margin-bottom: 32px;
     margin-top: 32px;
     text-align: center;
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 1.11; /* 111.111% */
+    line-height: 1.11;
     letter-spacing: 0.72px;
+    @media screen and (min-width: 768px) {
+      font-size: 36px;
+    }
   }
 `;
 export const StyledForYouIcon = styled.svg`

@@ -1,31 +1,40 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import img from "../../../public/Cars-For-Rent-Logo.jpg";
-import { StyledHeaderList, StyledHederWrapper } from "./Header.Styled";
+import {
+  StyledHeaderImg,
+  StyledHeaderList,
+  StyledHederWrapper,
+  StyledLink,
+  StyledNavLink,
+} from "./Header.Styled";
+import { StyledContainer } from "../../helpers/Container.styled";
 const Header = () => {
   const location = useLocation();
   return (
     <header>
-      <StyledHederWrapper>
-        <Link to="/">
-          <img src={img} alt="logo" />
-        </Link>
-        <StyledHeaderList>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/catalog" state={{ from: location }}>
-              Catalog
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/favorites" state={{ from: location }}>
-              Favorites
-            </NavLink>
-          </li>
-        </StyledHeaderList>
-      </StyledHederWrapper>
+      <StyledContainer>
+        <StyledHederWrapper>
+          <StyledLink to="/">
+            <StyledHeaderImg src={img} alt="logo" />
+          </StyledLink>
+          <StyledHeaderList>
+            <li>
+              <StyledNavLink to="/">Home</StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/catalog" state={{ from: location }}>
+                Catalog
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/favorites" state={{ from: location }}>
+                Favorites
+              </StyledNavLink>
+            </li>
+          </StyledHeaderList>
+        </StyledHederWrapper>
+      </StyledContainer>
     </header>
   );
 };
