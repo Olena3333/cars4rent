@@ -66,6 +66,7 @@ export const StyledAdvantagesListItem = styled.li`
   }
   &:before {
     content: url(${svgIcon});
+
     stroke: var(--accent-color);
   }
 `;
