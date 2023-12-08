@@ -1,6 +1,5 @@
 import { StyledContainer } from "../../helpers/Container.styled";
 import {
-  StyledAdvantagesIcon,
   StyledAdvantagesList,
   StyledAdvantagesListItem,
   StyledAdvantagesTitle,
