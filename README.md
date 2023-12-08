@@ -1,6 +1,8 @@
-Тестове завдання
-Створити застосунок для компанії, що надає послуги надання в Україні автомобілів в оренду. Застосунок складається з 3х сторінок:
+The application is created for a company that provides car rental services in Ukraine. The application consists of 3 pages:
 
-домашня сторінка з загальним описом послуг, що надає компанія. Стилізація та оформлення на ваш розсуд.
-сторінка, що містить каталог автівок різної комплектації, які користувач може фільтрувати за маркою, ціною за годину оренди авто та кількістю кілометрів, яку подолав автомобіль під час його експлуатації (пробіг).
-сторінка з оголошеннями, які були додані користувачем в улюблені Зовнішній вигляд програми повинен складатися з навігації(оформлення на ваш розсуд) та області перегляду.
+- home page with a general description of the services provided by the company. Stylization and design at your discretion.
+- page containing a catalog of cars of various configurations, which the user can filter by brand, price per hour of car rental and the number of kilometers covered by the car during its operation (mileage).
+- page with ads that have been added by the user to favorites. The appearance of the program should consist of a navigation (design at your discretion) and a viewing area.
+
+According to the layout, implement a car rental announcement card
+https://www.figma.com/file/i9qZDX9B74JShJ73BPdxJv/Test-(Copy)?node-id=0%3A1&mode=dev
