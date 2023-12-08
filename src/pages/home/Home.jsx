@@ -1,126 +1,218 @@
-import { StyledHeroTitle, StyledSectionHero } from "./Home.Styled";
+import { StyledContainer } from "../../helpers/Container.styled";
+import {
+  StyledAdvantagesIcon,
+  StyledAdvantagesList,
+  StyledAdvantagesListItem,
+  StyledAdvantagesTitle,
+  StyledForYouIcon,
+  StyledForYouList,
+  StyledForYouListItem,
+  StyledHeroTitle,
+  StyledRentalCarBtn,
+  StyledSectionAdvantages,
+  StyledSectionForYou,
+  StyledSectionHero,
+} from "./Home.Styled";
+import sprite from "../../img/svg/sprite.svg";
 
 const Home = () => {
   return (
     <div>
       <StyledSectionHero>
-        <StyledHeroTitle>ОРЕНДА АВТО В УКРАЇНІ</StyledHeroTitle>
+        <StyledHeroTitle>Rental Car in Ukraine</StyledHeroTitle>
+        <StyledRentalCarBtn type="button">Rental car</StyledRentalCarBtn>
       </StyledSectionHero>
-      <section>
-        {/* for you*/}
-        <h2>Для Вас це доступно</h2>
-        <ul>
-          <li>
-            <h3>Cтраховка авто</h3>
-            <p>
-              Подорожуйте спокійно і безпечно - ми беремо всі ризики на себе,
-              адже весь парк авто, який ми пропонуємо, повністю застрахований.
-            </p>
-          </li>
-          <li>
-            <h3>GPS - навігатор</h3>
-            <p>
-              Не губіться і економте час за допомогою GPS-навігатора, який
-              підкаже Вам оптимальний маршрут.
-            </p>
-          </li>
-          <li>
-            <h3>Дитяче крісло</h3>
-            <p>
-              Подорожуєте з дітьми? Захистіть своїх дітей за допомогою
-              комфортного дитячого крісла.
-            </p>
-          </li>
-          <li>
-            <h3>Wi-Fi інтернет</h3>
-            <p>
-              Залишайтеся на зв'язку і будьте в курсі всього, що відбувається зі
-              швидкісним Wi-Fi інтернетом.
-            </p>
-          </li>
-          <li>
-            <h3>Консьєрж-сервіс</h3>
-            <p>
-              Цілодобова підтримка з будь-якими питаннями, будь то бронювання
-              готелів або пошук кращих турів і товарів.
-            </p>
-          </li>
-          <li>
-            <h3>Допомога в дорозі</h3>
-            <p>
-              Потрібно поміняти колесо або зарядити акумулятор? Hаші фахівці
-              приїдуть і допоможуть вам.
-            </p>
-          </li>
-        </ul>
-      </section>
-      <section>
-        {" "}
-        {/* advantages*/}
-        <h2>Наші переваги</h2>
-        <ul>
-          <li>
-            Ми пропонуємо величезний вибір авто в оренду, адже на сайті RENTAL
-            ви можете вибирати з більш, ніж 250 авто.
-          </li>
-          <li>
-            Завдяки цьому ви можете обрати та взяти в оренду автомобіль, яким ви
-            хотіли б керувати, а не обирати лише клас авто.
-          </li>
-          <li>
-            Тільки свіжі автомобілі - всі орендовані авто, які ми пропонуємо
-            своїм клієнтам, не старші від 3-х років.
-          </li>
-          <li>
-            Широкий ціновий діапазон і постійні акції та знижки. У компанії
-            RENTAL кожен зможе знайти автомобіль, який підходить йому по
-            вартості та за умовами оренди. Всі ціни вказані на сайті. Ніяких
-            прихованих або додаткових платежів за прокат авто. Для постійних
-            клієнтів у нас є окрема програма лояльності.
-          </li>
-          <li>
-            Оренда авто в кілька кліків. Виберіть потрібну машину, період, на
-            який ви плануєте орендувати автомобіль, і залиште свій контактний
-            номер телефону. Протягом декількох хвилин наш оператор зв'яжеться з
-            вами, щоб уточнити деталі і підтвердити замовлення прокату авто.
-          </li>
-          <li>
-            Графік роботи 24/7 без свят і вихідних. Наші менеджери готові
-            допомогти вам з орендою авто в будь-який час дня та ночі.
-          </li>
-          <li>
-            Адресна доставка орендованого автомобіля. Вам не потрібно кудись
-            їхати, щоб взяти авто на прокат без водія.
-          </li>
-          <li>
-            Доставка машин у будь-яку точку України. Вам зовсім не обов'язково
-            приїжджати в офіс, щоб взяти машину в оренду. Все, що потрібно -
-            просто назвати адресу доставки, і в зазначений час авто буде на вас
-            чекати, навіть у містах, де наразі поки немає філії RENTAL.
-          </li>
-          <li>
-            Ми піклуємося про час наших клієнтів. Навіть процес оренди авто без
-            застави в компанії RENTAL займає 5-10 хвилин часу, після чого ви
-            отримує ключі і повний бак.
-          </li>
-          <li>
-            Консьєрж-сервіс. Крім самого прокату авто, наші послуги включають
-            цілодобову підтримку з будь-яких питань. Ми готові допомогти вам з
-            бронюванням номера в готелі, пошуком необхідних товарів,
-            резервуванням столиків в ресторані. Ми навіть допоможемо погодувати
-            домашніх тварин, що залишилися самі вдома.
-          </li>
-          <li>
-            Технічна підтримка 24/7. Що б не сталося в дорозі, чи то пошкодження
-            колеса, чи розряджений акумулятор, наші фахівці завжди готові
-            вирішити будь-які технічні питання, пов'язані з авто на прокат.
-          </li>
-          <li>
-            повністю укомплектований та дезінфікований автомобіль, який
-            проходить регулярне технічне обслуговування.
-          </li>
-        </ul>
-      </section>
+      <StyledSectionAdvantages>
+        <StyledContainer>
+          <StyledAdvantagesTitle>Our Advantages</StyledAdvantagesTitle>
+          <StyledAdvantagesList>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                We offer a vast selection of cars for rent, as on the RENTAL
+                site you can choose from more than 250 cars. Thanks to this, you
+                can select a specific car you would like to drive and not a car
+                class.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Only new cars - all cars for rent that we offer our customers
+                are not older than three years.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Wide price range and constant actions and discounts on car
+                rental services. At the RENTAL site, everyone can find a car for
+                rent that suits him in terms of the price and conditions of the
+                lease. All prices are listed on the site: no hidden or extra
+                fees. We have a separate loyalty program for regular customers.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Rent a car in a few clicks. Choose the car you need, the period
+                you want to rent a car, and leave your contact phone number. Our
+                operator will contact you within several minutes to elaborate on
+                the details and confirm the car rental order.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Car rental services work 24/7 without holidays and weekends. Our
+                managers are ready to help you rent a car at any time of the day
+                or night.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Targeted delivery of the rented car. You do not need to go
+                somewhere to rent a car.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Delivery of cars to any place in Ukraine. You do not need to
+                come to the office to rent a car. All you need is just to name
+                the delivery address. A car will be waiting for you at a
+                specified time, even in Ukrainian cities where our car rental
+                branches are not yet available.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                We take care of our clients' time. Even the car rental process
+                without a deposit at the company RENTAL takes 5-10 minutes,
+                after which you receive the keys and a full tank.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Concierge Service. In addition to the car rental itself, our
+                services include 24-hour support for any questions. We are ready
+                to help you with hotel reservations, searching for items you
+                need, and making restaurant reservations. We can even help feed
+                pets left at home.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                Technical support 24/7. No matter what happens on the road,
+                whether it's a punctured tire or a dead battery, our experts are
+                always ready to solve any technical issues related to the car.
+              </p>
+            </StyledAdvantagesListItem>
+            <StyledAdvantagesListItem>
+              <StyledAdvantagesIcon width="20" height="20">
+                <use href={`${sprite}#icon-pencil`} />
+              </StyledAdvantagesIcon>
+              <p>
+                A fully equipped and sanitized car for rent that undergoes
+                regular maintenance.
+              </p>
+            </StyledAdvantagesListItem>
+          </StyledAdvantagesList>
+        </StyledContainer>
+      </StyledSectionAdvantages>
+
+      <StyledSectionForYou>
+        <StyledContainer>
+          <StyledAdvantagesTitle>It's available for you</StyledAdvantagesTitle>
+          <StyledForYouList>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-file-text2`} />
+              </StyledForYouIcon>
+              <h3>Car insurance</h3>
+              <p>
+                Travel safely – we handle all risks on our own. All of our cars
+                have valid insurance policies.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-location`} />
+              </StyledForYouIcon>
+              <h3>GPS-navigation</h3>
+              <p>
+                Never get lost and save time with the GPS-navigation device
+                which will calculate the best route for you.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-accessibility`} />
+              </StyledForYouIcon>
+              <h3>Child safety sea</h3>
+              <p>
+                Traveling with children? Take care of their safety with a
+                comfortable child seat.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-connection`} />
+              </StyledForYouIcon>
+              <h3>Wi-Fi</h3>
+              <p>
+                Stay connected and in touch with all goings-on with a high-speed
+                Wi-Fi Internet.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-wrench`} />
+              </StyledForYouIcon>
+              <h3>Concierge service</h3>
+              <p>
+                Round-the-clock support with any questions, be it hotel
+                reservations or finding the best tours and products.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-headphones`} />
+              </StyledForYouIcon>
+              <h3>Assistance on the road</h3>
+              <p>
+                Need help replacing a broken wheel? The battery has to be
+                charged? Get in touch with us and our team will arrive to help
+                you on the road.
+              </p>
+            </StyledForYouListItem>
+          </StyledForYouList>
+        </StyledContainer>
+      </StyledSectionForYou>
     </div>
   );
 };
