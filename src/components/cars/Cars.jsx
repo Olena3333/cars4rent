@@ -2,8 +2,18 @@ import { useEffect } from "react";
 import { fetchCarsThunk } from "../../redux/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCars } from "../../redux/selectors";
-import { StyledCarImgt, StyledCarsList } from "./Cars.styled";
+import {
+  StyledCarImgContainer,
+  StyledCarImgt,
+  StyledCarLearnMore,
+  StyledCarLike,
+  StyledCarTextt,
+  StyledCarlInfoDiv,
+  StyledCarsList,
+} from "./Cars.styled";
 import { StyledContainer } from "../../helpers/Container.styled";
+
+import sprite from "../../img/svg/sprite.svg";
 
 const Cars = () => {
   const dispatch = useDispatch();
@@ -29,8 +39,16 @@ const Cars = () => {
       <StyledContainer>
         <StyledCarsList>
           {cars?.map((car) => (
-            <li key={car.id}>
+            <StyledCarImgContainer key={car.id}>
               <StyledCarImgt src={car.img} alt={car.make} height="268px" />
+              <StyledCarLike
+                width="18"
+                height="18"
+                // $like={isFavorite || like === index}
+                // onClick={() => toggleFavoritesHandler(car, index)}
+              >
+                <use href={`${sprite}#icon-normal`} />
+              </StyledCarLike>
               <div>
                 <h3>
                   {car.make}
@@ -38,22 +56,27 @@ const Cars = () => {
                 </h3>
                 <h3>{car.year}</h3>
               </div>
-              <div>
-                <p>
+              <StyledCarlInfoDiv>
+                <StyledCarTextt>
                   {car.address
                     .split(" ")
                     [car.address.split(" ").length - 2].slice(0, -1)}
-                </p>
-                <p>
+                </StyledCarTextt>
+                <StyledCarTextt>
                   {car.address.split(" ")[car.address.split(" ").length - 1]}
-                </p>
-                <p>{car.rentalCompany}</p>
-                <p>{car.type}</p>
-                <p>{car.make}</p>
-                <p>{car.mileage}</p>
-                <p>{car.accessories[0]}</p>
-              </div>
-            </li>
+                </StyledCarTextt>
+                <StyledCarTextt>{car.rentalCompany}</StyledCarTextt>
+                <StyledCarTextt>{car.type}</StyledCarTextt>
+                <StyledCarTextt>{car.make}</StyledCarTextt>
+                <StyledCarTextt>{car.mileage}</StyledCarTextt>
+                <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
+              </StyledCarlInfoDiv>
+              <StyledCarLearnMore
+              // onClick={() => isOpen(car)}
+              >
+                Learn more
+              </StyledCarLearnMore>
+            </StyledCarImgContainer>
           ))}
         </StyledCarsList>
       </StyledContainer>
