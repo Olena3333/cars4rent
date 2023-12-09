@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const StyledCarsList = styled.ul`
   display: flex;
-  gap: 10px;
+  gap: 60px 10px;
   flex-wrap: wrap;
 
   @media screen and (min-width: 425px) {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 29px;
     flex-direction: column;
     align-items: start;
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 export const StyledCarImgContainer = styled.li`
@@ -25,7 +29,21 @@ export const StyledCarlInfoDiv = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
 `;
-
+export const StyledCarPriseDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8px;
+`;
+export const StyledCarTextTitle = styled.h3`
+  color: var(--Text);
+  font-weight: 500;
+  line-height: 1.5;
+  span {
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--accent-color);
+  }
+`;
 export const StyledCarTextt = styled.p`
   color: rgba(18, 20, 23, 0.5);
   font-style: normal;

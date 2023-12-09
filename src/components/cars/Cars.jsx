@@ -7,6 +7,8 @@ import {
   StyledCarImgt,
   StyledCarLearnMore,
   StyledCarLike,
+  StyledCarPriseDiv,
+  StyledCarTextTitle,
   StyledCarTextt,
   StyledCarlInfoDiv,
   StyledCarsList,
@@ -49,13 +51,13 @@ const Cars = () => {
               >
                 <use href={`${sprite}#icon-normal`} />
               </StyledCarLike>
-              <div>
-                <h3>
+              <StyledCarPriseDiv>
+                <StyledCarTextTitle>
                   {car.make}
-                  <span>{car.model}</span>
-                </h3>
-                <h3>{car.year}</h3>
-              </div>
+                  <span> {car.model}</span>, {car.year}
+                </StyledCarTextTitle>
+                <StyledCarTextTitle>{car.rentalPrice}</StyledCarTextTitle>
+              </StyledCarPriseDiv>
               <StyledCarlInfoDiv>
                 <StyledCarTextt>
                   {car.address
