@@ -2,16 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCarsThunk, updateLikeStatusThunk } from "./operations";
 
 const initialState = {
-  cars: [],
+  carsInf: [],
   error: false,
   isLoading: false,
   liked: false,
+  isModalOpen: false,
 };
 
 const carsSlice = createSlice({
   name: "cars",
   initialState,
-  reducers: {},
+  reducers: {
+    setOpenModal: (state, action) => {
+      state.isModalOpen = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCarsThunk.pending, (state) => {
@@ -37,3 +42,5 @@ const carsSlice = createSlice({
 });
 
 export const carsReducer = carsSlice.reducer;
+export const { setCars, setId, setLoading, setError, setAllCars, setFilter } =
+  carsSlice.actions;

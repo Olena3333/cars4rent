@@ -19,7 +19,9 @@ const Home = () => {
     <div>
       <StyledSectionHero>
         <StyledHeroTitle>Rental Car in Ukraine</StyledHeroTitle>
-        <StyledRentalCarBtn type="button">Rental car</StyledRentalCarBtn>
+        <a href="tel:+380730000000">
+          <StyledRentalCarBtn type="button">Rental car</StyledRentalCarBtn>
+        </a>
       </StyledSectionHero>
       <StyledSectionAdvantages>
         <StyledContainer>
