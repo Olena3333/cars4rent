@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import img from "../../../public/Cars-For-Rent-Logo.jpg";
+import img from "/Cars-For-Rent-Logo.jpg";
 import {
   StyledHeaderImg,
   StyledHeaderList,

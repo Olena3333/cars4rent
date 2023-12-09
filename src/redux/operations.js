@@ -9,9 +9,13 @@ export const fetchCarsThunk = createAsyncThunk(
   "fetchPage",
   async ({ page = 1, limit = 12 }, thunkApi) => {
     try {
-      const { data } = await advertsCarApi.get(
-        `cars/car?page=${page}&limit=${limit}`
-      );
+      const { data } = await advertsCarApi.get("/Advert", {
+        params: {
+          page: page,
+          limit: limit,
+        },
+      });
+      // console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -24,7 +28,7 @@ export const updateLikeStatusThunk = createAsyncThunk(
   async ({ id, liked }, thunkAPI) => {
     try {
       const updatedLikeStatus = Boolean(liked);
-      const { data } = await advertsCarApi.put(`cars/${id}`, {
+      const { data } = await advertsCarApi.put(`/Advert${id}`, {
         liked: updatedLikeStatus,
       });
       return data;
@@ -38,7 +42,7 @@ export const fetchAllPageCarsThunk = createAsyncThunk(
   "fetchAllPage",
   async (_, thunkApi) => {
     try {
-      const { data } = await advertsCarApi.get(`/adverts`);
+      const { data } = await advertsCarApi.get(`/Advert`);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -49,7 +53,7 @@ export const getCarByIdThunk = createAsyncThunk(
   "fetchCar",
   async ({ id }, thunkApi) => {
     try {
-      const { data } = await advertsCarApi.get(`/adverts/${id}`);
+      const { data } = await advertsCarApi.get(`/Advert/${id}`);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

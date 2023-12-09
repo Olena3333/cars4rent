@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   liked: false,
   isModalOpen: false,
+  selectedCar: null,
 };
 
 const carsSlice = createSlice({
@@ -16,6 +17,9 @@ const carsSlice = createSlice({
     setOpenModal: (state, action) => {
       state.isModalOpen = action.payload;
     },
+    setSelectedCar: (state, action) => {
+      state.selectedCar = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -24,8 +28,9 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
-        state.cars = payload;
+        state.carsInf = payload;
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(fetchCarsThunk.rejected, (state, { payload }) => {
         state.isLoading = false;
