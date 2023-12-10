@@ -20,8 +20,9 @@ import sprite from "../../img/svg/sprite.svg";
 import LoadMore from "../loadMore/LoadMore";
 import Modal from "../modal/Modal";
 import { useModal } from "../hooks/useModal";
-import ModalCar from "../modalCar/ModalCar";
+
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
+import ModalCar from "../modalCar/ModalCar";
 
 const Cars = () => {
   const dispatch = useDispatch();
@@ -95,7 +96,8 @@ const Cars = () => {
                 </StyledCarLearnMore>
                 {isOpen ? (
                   <Modal
-                    // children={<ModalCar closeModal={closeModal} />}
+                    // eslint-disable-next-line react/no-children-prop
+                    children={<ModalCar selectedCar={car} />}
                     closeModal={closeModal}
                   />
                 ) : null}

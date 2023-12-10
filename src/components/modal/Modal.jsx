@@ -44,6 +44,7 @@ const Modal = ({ children, closeModal }) => {
             <use href={`${svgIconX}`} />
           </StyledSvgUser>
         </CloseButton>
+        <h1>fffffffffffff</h1>
         {children}
       </ContentWrapper>
     </StyledWrapper>,

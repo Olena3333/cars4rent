@@ -5,12 +5,12 @@ import {
   StyledLogOutWrapper,
 } from "./ModalCar.styled";
 
-const ModalCar = () => {
+const ModalCar = ({ selectedCar }) => {
   return (
     <StyledLogOutWrapper>
       <StyledLogOutText>Car</StyledLogOutText>
       <StyledLogOutButtonWrapper>
-        <StyledLogOutButton>RentalCar</StyledLogOutButton>
+        <StyledLogOutButton>{selectedCar}</StyledLogOutButton>
       </StyledLogOutButtonWrapper>
     </StyledLogOutWrapper>
   );

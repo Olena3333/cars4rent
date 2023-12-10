@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import sprite from "../../img/svg/sprite.svg";
+import { toast } from "react-toastify";
 
 export const FavoritesTable = () => {
   const favorites = useSelector(selectFavorites);
@@ -37,7 +38,11 @@ export const FavoritesTable = () => {
       setLike(index);
     }
   };
-  console.log(favorites);
+  if (!favorites.length) {
+    toast.info("Add cars in favorites!");
+    return <p>You do not have favorites</p>;
+  }
+
   return (
     <section>
       <StyledContainer>
