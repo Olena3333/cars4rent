@@ -5,6 +5,7 @@ const initialState = {
   carsInf: [],
   error: false,
   isLoading: false,
+  morePages: false,
   liked: false,
   isModalOpen: false,
   selectedCar: null,
@@ -14,6 +15,9 @@ const carsSlice = createSlice({
   name: "cars",
   initialState,
   reducers: {
+    setMorePages: (state, action) => {
+      state.morePages = action.payload;
+    },
     setOpenModal: (state, action) => {
       state.isModalOpen = action.payload;
     },
@@ -28,7 +32,8 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
-        state.carsInf = payload;
+        state.carsInf = [...state.carsInf, ...payload];
+        console.log(state.carsInf);
         state.isLoading = false;
         state.error = null;
       })

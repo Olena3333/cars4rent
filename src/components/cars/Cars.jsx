@@ -16,16 +16,17 @@ import {
 import { StyledContainer } from "../../helpers/Container.styled";
 
 import sprite from "../../img/svg/sprite.svg";
+import LoadMore from "../loadMore/LoadMore";
 
 const Cars = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   // const car = useSelector(selectSelectedCar);
   // const isModalOpen = useSelector(selectOpenModal);
 
-  useEffect(() => {
-    dispatch(fetchCarsThunk(1));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCarsThunk(1));
+  // }, [dispatch]);
 
   // const isOpen = (car) => {
   //   dispatch(selectSelectedCar(car));
@@ -81,6 +82,7 @@ const Cars = () => {
             </StyledCarImgContainer>
           ))}
         </StyledCarsList>
+        <LoadMore />
       </StyledContainer>
     </section>
   );

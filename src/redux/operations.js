@@ -23,6 +23,19 @@ export const fetchCarsThunk = createAsyncThunk(
   }
 );
 
+export const fetchAllPageCarsThunk = createAsyncThunk(
+  "fetchAllPage",
+  async (_, thunkApi) => {
+    try {
+      const { data } = await advertsCarApi.get(`/Advert`);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const updateLikeStatusThunk = createAsyncThunk(
   "fetchCar",
   async ({ id, liked }, thunkAPI) => {
@@ -38,17 +51,6 @@ export const updateLikeStatusThunk = createAsyncThunk(
   }
 );
 
-export const fetchAllPageCarsThunk = createAsyncThunk(
-  "fetchAllPage",
-  async (_, thunkApi) => {
-    try {
-      const { data } = await advertsCarApi.get(`/Advert`);
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
 export const getCarByIdThunk = createAsyncThunk(
   "fetchCar",
   async ({ id }, thunkApi) => {

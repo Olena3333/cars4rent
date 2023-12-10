@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const StyledCarsList = styled.ul`
   display: flex;
-  gap: 60px 10px;
+  gap: 50px 29px;
   flex-wrap: wrap;
 
   @media screen and (min-width: 425px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px 29px;
     flex-direction: column;
-    align-items: start;
+    /* align-items: start; */
   }
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -58,7 +57,7 @@ export const StyledCarTextt = styled.p`
 `;
 
 export const StyledCarImgt = styled.img`
-  width: 274px;
+  width: 100%;
   height: 268px;
   border-radius: 14px;
   object-fit: fill;
