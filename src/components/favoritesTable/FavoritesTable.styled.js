@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const StyledFavoritText = styled.p`
+  text-align: center;
+  color: var(--Text-halb);
+  font-size: 50px;
+`;
+
 export const StyledCarsList = styled.ul`
   padding-left: 0px;
   display: flex;
@@ -10,7 +16,6 @@ export const StyledCarsList = styled.ul`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
-    /* align-items: start; */
   }
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
@@ -51,13 +56,9 @@ export const StyledCarTextTitle = styled.h3`
 export const StyledCarTextt = styled.p`
   color: rgba(18, 20, 23, 0.5);
   max-height: 50px;
-  font-style: normal;
   font-weight: 400;
   line-height: 18px;
   font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
   padding-right: 6px;
   border-right: 1px solid rgba(18, 20, 23, 0.1);
 `;

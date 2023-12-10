@@ -22,6 +22,7 @@ import Modal from "../modal/Modal";
 import { useModal } from "../hooks/useModal";
 
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
+import { toast } from "react-toastify";
 
 const Cars = () => {
   const cars = useSelector(selectCars);
@@ -37,9 +38,11 @@ const Cars = () => {
     );
     if (isFavorite) {
       dispatch(removeFromFavorites(car));
+      toast.info(`${car.make} ${car.model} removed from favorites`);
       setLike(null);
     } else {
       dispatch(setFavorites(car));
+      toast.info(`${car.make} ${car.model} add to favorites`);
       setLike(index);
     }
   };
@@ -87,10 +90,12 @@ const Cars = () => {
                   <StyledCarTextt>{car.mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
-                <StyledCarLearnMore onClick={() => openModal(car)}>
+                <StyledCarLearnMore onClick={() => openModal(car, index)}>
                   Learn more
                 </StyledCarLearnMore>
-                {isOpen ? <Modal closeModal={closeModal} car={car} /> : null}
+                {isOpen ? (
+                  <Modal closeModal={closeModal} car={car} index={index} />
+                ) : null}
               </StyledCarImgContainer>
             );
           })}

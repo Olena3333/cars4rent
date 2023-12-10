@@ -10,6 +10,7 @@ import {
   StyledCarTextt,
   StyledCarlInfoDiv,
   StyledCarsList,
+  StyledFavoritText,
 } from "./FavoritesTable.styled";
 
 import { useState } from "react";
@@ -40,7 +41,7 @@ export const FavoritesTable = () => {
   };
   if (!favorites.length) {
     toast.info("Add cars in favorites!");
-    return <p>You do not have favorites</p>;
+    return <StyledFavoritText>You do not have favorites</StyledFavoritText>;
   }
 
   return (
