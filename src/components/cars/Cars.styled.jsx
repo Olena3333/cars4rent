@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCarsList = styled.ul`
+  padding-left: 0px;
   display: flex;
   gap: 50px 29px;
   flex-wrap: wrap;
@@ -30,10 +31,14 @@ export const StyledCarlInfoDiv = styled.div`
 `;
 export const StyledCarPriseDiv = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 8px;
+  div {
+    display: flex;
+  }
 `;
 export const StyledCarTextTitle = styled.h3`
+  max-height: 24px;
   color: var(--Text);
   font-weight: 500;
   line-height: 1.5;
@@ -45,6 +50,7 @@ export const StyledCarTextTitle = styled.h3`
 `;
 export const StyledCarTextt = styled.p`
   color: rgba(18, 20, 23, 0.5);
+  max-height: 50px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
@@ -83,7 +89,7 @@ export const StyledCarLearnMore = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
-  width: 274px;
+  width: 100%;
   height: 44px;
   border-radius: 12px;
   border: none;

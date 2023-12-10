@@ -28,7 +28,7 @@ export const fetchAllPageCarsThunk = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { data } = await advertsCarApi.get(`/Advert`);
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

@@ -53,10 +53,13 @@ const Cars = () => {
                 <use href={`${sprite}#icon-normal`} />
               </StyledCarLike>
               <StyledCarPriseDiv>
-                <StyledCarTextTitle>
-                  {car.make}
-                  <span> {car.model}</span>, {car.year}
-                </StyledCarTextTitle>
+                <div>
+                  <StyledCarTextTitle>{car.make}</StyledCarTextTitle>
+                  <StyledCarTextTitle>
+                    <span> {car.model}</span>,
+                  </StyledCarTextTitle>
+                  <StyledCarTextTitle>{car.year}</StyledCarTextTitle>
+                </div>
                 <StyledCarTextTitle>{car.rentalPrice}</StyledCarTextTitle>
               </StyledCarPriseDiv>
               <StyledCarlInfoDiv>
@@ -88,3 +91,10 @@ const Cars = () => {
   );
 };
 export default Cars;
+// const Pidorasina2 = (distance) => {
+//   const numberString = distance.toString();
+
+//   const formattedInteger = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+//   return formattedInteger;
+// };
