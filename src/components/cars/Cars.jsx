@@ -22,11 +22,11 @@ import Modal from "../modal/Modal";
 import { useModal } from "../hooks/useModal";
 
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
-import ModalCar from "../modalCar/ModalCar";
 
 const Cars = () => {
-  const dispatch = useDispatch();
   const cars = useSelector(selectCars);
+  const dispatch = useDispatch();
+
   const { isOpen, openModal, closeModal } = useModal();
 
   const [like, setLike] = useState(null);
@@ -35,7 +35,6 @@ const Cars = () => {
     const isFavorite = favorites.some(
       (favoriteCar) => favoriteCar.id === car.id
     );
-
     if (isFavorite) {
       dispatch(removeFromFavorites(car));
       setLike(null);
@@ -44,8 +43,6 @@ const Cars = () => {
       setLike(index);
     }
   };
-  // const car = useSelector(selectSelectedCar);
-  // const isModalOpen = useSelector(selectOpenModal);
 
   return (
     <section>
@@ -90,17 +87,10 @@ const Cars = () => {
                   <StyledCarTextt>{car.mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
-
-                <StyledCarLearnMore onClick={openModal}>
+                <StyledCarLearnMore onClick={() => openModal(car)}>
                   Learn more
                 </StyledCarLearnMore>
-                {isOpen ? (
-                  <Modal
-                    // eslint-disable-next-line react/no-children-prop
-                    children={<ModalCar selectedCar={car} />}
-                    closeModal={closeModal}
-                  />
-                ) : null}
+                {isOpen ? <Modal closeModal={closeModal} car={car} /> : null}
               </StyledCarImgContainer>
             );
           })}
@@ -111,11 +101,3 @@ const Cars = () => {
   );
 };
 export default Cars;
-
-// const Pidorasina2 = (distance) => {
-//   const numberString = distance.toString();
-
-//   const formattedInteger = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-//   return formattedInteger;
-// };

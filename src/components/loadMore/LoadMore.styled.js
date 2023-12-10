@@ -8,6 +8,9 @@ export const StyledLoadMoreButton = styled.button`
   line-height: 24px;
   color: var(--accent-color);
   text-decoration-line: underline;
+  &:hover,
+  &:focus {
+    color: var(--accent-color-hover);
 `;
 
 export const StyledLoadMoreContainer = styled.div`

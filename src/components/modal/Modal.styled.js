@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: var(--Text-halb);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,13 +15,12 @@ export const StyledWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   position: relative;
-  background-color: rgba(23, 23, 25, 1);
-  border: 1px solid rgba(250, 250, 250, 0.1);
+  background-color: var(--White);
+  border: 1px solid var(--Text-halb);
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 30px;
   width: 541px;
   height: 752px;
-
   @media (max-width: 767px) {
     width: 335px;
   }
@@ -40,8 +39,7 @@ export const CloseButton = styled.button`
 `;
 
 export const StyledSvgUser = styled.svg`
-  stroke: rgba(250, 250, 250, 1);
-
+  stroke: var(--Text);
   &:hover,
   &:focus {
     stroke: rgba(250, 250, 250, 0.5);

@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { useCallback, useEffect } from "react";
-import svgIconX from "../../img/svg/x.svg";
+import sprite from "../../img/svg/sprite.svg";
 import {
   CloseButton,
   ContentWrapper,
@@ -10,7 +10,7 @@ import {
 
 const rootModal = document.querySelector("#modal");
 
-const Modal = ({ children, closeModal }) => {
+const Modal = ({ closeModal, car }) => {
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") {
@@ -41,21 +41,14 @@ const Modal = ({ children, closeModal }) => {
       <ContentWrapper>
         <CloseButton onClick={closeModal}>
           <StyledSvgUser width={24} height={24}>
-            <use href={`${svgIconX}`} />
+            <use href={`${sprite}#icon-x`} />
+            {/* <use href={`${svgIconX}`} /> */}
           </StyledSvgUser>
         </CloseButton>
-        <h1>fffffffffffff</h1>
-        {children}
+        <h1>{car.id}</h1>
       </ContentWrapper>
     </StyledWrapper>,
     rootModal
   );
 };
 export default Modal;
-
-// import { useModal } from 'components/hooks/useModal';
-// const { isOpen, openModal, closeModal } = useModal();
-// <div>
-//   <button onClick={openModal}>open</button>
-//   {isOpen ? <Modal closeModal={closeModal} /> : null}
-// </div>;

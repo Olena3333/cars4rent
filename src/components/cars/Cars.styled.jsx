@@ -92,6 +92,7 @@ export const StyledCarLearnMore = styled.button`
   border: none;
   color: var(--White);
   background: var(--accent-color);
-  /* position: absolute;
-  bottom: 0; */
+  &:hover,
+  &:focus {
+    background: var(--accent-color-hover);
 `;
