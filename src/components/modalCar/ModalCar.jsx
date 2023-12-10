@@ -3,7 +3,7 @@ import {
   StyledLogOutButtonWrapper,
   StyledLogOutText,
   StyledLogOutWrapper,
-} from "./LogOutModal.Styled";
+} from "./ModalCar.styled";
 
 const ModalCar = () => {
   return (

@@ -36,21 +36,6 @@ export const fetchAllPageCarsThunk = createAsyncThunk(
   }
 );
 
-export const updateLikeStatusThunk = createAsyncThunk(
-  "fetchCar",
-  async ({ id, liked }, thunkAPI) => {
-    try {
-      const updatedLikeStatus = Boolean(liked);
-      const { data } = await advertsCarApi.put(`/Advert${id}`, {
-        liked: updatedLikeStatus,
-      });
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const getCarByIdThunk = createAsyncThunk(
   "fetchCar",
   async ({ id }, thunkApi) => {

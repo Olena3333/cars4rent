@@ -21,6 +21,11 @@ const carsPersistConfig = {
   whitelist: ["favorite"],
 };
 
+const filterPersistConfig = {
+  key: "filter",
+  storage,
+};
+
 const favoritesPersistConfig = {
   key: "favorites",
   storage,
@@ -30,8 +35,8 @@ const favoritesPersistConfig = {
 const store = configureStore({
   reducer: {
     cars: persistReducer(carsPersistConfig, carsReducer),
-    filter: persistReducer(carsPersistConfig, filterReducer),
-    favoriteReducer: persistReducer(favoritesPersistConfig, favoriteReducer),
+    filter: persistReducer(filterPersistConfig, filterReducer),
+    favorites: persistReducer(favoritesPersistConfig, favoriteReducer),
   },
 
   middleware: (getDefaultMiddleware) =>

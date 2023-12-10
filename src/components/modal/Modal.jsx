@@ -50,5 +50,11 @@ const Modal = ({ children, closeModal }) => {
     rootModal
   );
 };
-
 export default Modal;
+
+// import { useModal } from 'components/hooks/useModal';
+// const { isOpen, openModal, closeModal } = useModal();
+// <div>
+//   <button onClick={openModal}>open</button>
+//   {isOpen ? <Modal closeModal={closeModal} /> : null}
+// </div>;

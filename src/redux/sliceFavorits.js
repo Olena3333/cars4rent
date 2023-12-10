@@ -7,13 +7,15 @@ const initialState = {
 const sliceFavorites = createSlice({
   name: "favorities",
   initialState,
-  addToFavorites: (state, action) => {
-    state.favorite.push(action.payload);
-  },
-  removeFromFavorites: (state, action) => {
-    state.favorite = state.favorite.filter(
-      (item) => item.id !== action.payload.id
-    );
+  reducers: {
+    setFavorites: (state, action) => {
+      state.favorite.push(action.payload);
+    },
+    removeFromFavorites: (state, action) => {
+      state.favorite = state.favorite.filter(
+        (item) => item.id !== action.payload.id
+      );
+    },
   },
 });
 
