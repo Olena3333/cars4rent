@@ -53,7 +53,7 @@ const Cars = () => {
           {cars?.map((car, index) => {
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (
-              <StyledCarImgContainer key={car.id}>
+              <StyledCarImgContainer key={index}>
                 <StyledCarImgt src={car.img} alt={car.make} height="268px" />
                 <StyledCarLike
                   width="18"

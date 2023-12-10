@@ -27,7 +27,6 @@ const carsSlice = createSlice({
       })
       .addCase(fetchCarsThunk.fulfilled, (state, { payload }) => {
         state.carsInf = [...state.carsInf, ...payload];
-        console.log(state.carsInf);
         state.isLoading = false;
         state.error = null;
       })
@@ -35,13 +34,6 @@ const carsSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       });
-    // .addCase(updateLikeStatusThunk.fulfilled, (state, { payload }) => {
-    //   const { id, liked } = payload;
-    //   const carToUpdate = state.cars.find((car) => car.id === id);
-    //   if (carToUpdate) {
-    //     carToUpdate.liked = liked;
-    //   }
-    // });
   },
 });
 

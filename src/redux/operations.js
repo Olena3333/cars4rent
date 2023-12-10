@@ -15,7 +15,6 @@ export const fetchCarsThunk = createAsyncThunk(
           limit: limit,
         },
       });
-      // console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -23,27 +22,27 @@ export const fetchCarsThunk = createAsyncThunk(
   }
 );
 
-export const fetchAllPageCarsThunk = createAsyncThunk(
-  "fetchAllPage",
-  async (_, thunkApi) => {
-    try {
-      const { data } = await advertsCarApi.get(`/Advert`);
-      // console.log(data);
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
+// export const fetchAllPageCarsThunk = createAsyncThunk(
+//   "fetchAllPage",
+//   async (_, thunkApi) => {
+//     try {
+//       const { data } = await advertsCarApi.get(`/Advert`);
+//       // console.log(data);
+//       return data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
-export const getCarByIdThunk = createAsyncThunk(
-  "fetchCar",
-  async ({ id }, thunkApi) => {
-    try {
-      const { data } = await advertsCarApi.get(`/Advert/${id}`);
-      return data;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
+// export const getCarByIdThunk = createAsyncThunk(
+//   "fetchCar",
+//   async ({ id }, thunkApi) => {
+//     try {
+//       const { data } = await advertsCarApi.get(`/Advert/${id}`);
+//       return data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );

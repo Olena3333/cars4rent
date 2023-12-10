@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCars, selectFavorites } from "../../redux/selectors";
+import { selectFavorites } from "../../redux/selectors";
 import { StyledContainer } from "../../helpers/Container.styled";
 import {
   StyledCarImgContainer,
   StyledCarImgt,
-  StyledCarLearnMore,
   StyledCarLike,
   StyledCarPriseDiv,
   StyledCarTextTitle,
@@ -12,7 +11,7 @@ import {
   StyledCarlInfoDiv,
   StyledCarsList,
 } from "./FavoritesTable.styled";
-import LoadMore from "../loadMore/LoadMore";
+
 import { useState } from "react";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import sprite from "../../img/svg/sprite.svg";
@@ -38,6 +37,7 @@ export const FavoritesTable = () => {
       setLike(index);
     }
   };
+  console.log(favorites);
   return (
     <section>
       <StyledContainer>
@@ -45,7 +45,7 @@ export const FavoritesTable = () => {
           {favorites?.map((car, index) => {
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (
-              <StyledCarImgContainer key={car.id}>
+              <StyledCarImgContainer key={index}>
                 <StyledCarImgt src={car.img} alt={car.make} height="268px" />
                 <StyledCarLike
                   width="18"
@@ -95,7 +95,6 @@ export const FavoritesTable = () => {
             );
           })}
         </StyledCarsList>
-        <LoadMore />
       </StyledContainer>
     </section>
   );
