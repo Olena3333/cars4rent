@@ -4,9 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../hooks/useModal";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import {
+  selectAllCars,
   selectCars,
   selectFavorites,
   selectLoading,
+  selectedMileageFrom,
+  selectedMileageTo,
+  selectedPrice,
+  selectsFilteredMake,
 } from "../../redux/selectors";
 
 import sprite from "../../img/svg/sprite.svg";
@@ -31,9 +36,17 @@ const Cars = () => {
   const cars = useSelector(selectCars);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
+
   const { isOpen, openModal, closeModal } = useModal();
+
   const [like, setLike] = useState(null);
   const favorites = useSelector(selectFavorites);
+
+  const allCars = useSelector(selectAllCars);
+  const carsPrice = useSelector(selectedPrice);
+  const mileageFrom = useSelector(selectedMileageFrom);
+  const mileageTo = useSelector(selectedMileageTo);
+  const filterValue = useSelector(selectsFilteredMake);
 
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
@@ -54,12 +67,50 @@ const Cars = () => {
     const wordWichKoma = numberTuString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return wordWichKoma;
   };
+  const getFilteredCars = () => {
+    let filteredCars = allCars.slice();
 
+    if (!!filterValue) {
+      filteredCars = filteredCars.filter((car) =>
+        car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
+      );
+    } else {
+      toast.warning("No search results, enter make");
+    }
+
+    if (!!carsPrice) {
+      filteredCars = filteredCars.filter(
+        (car) => parseFloat(car.rentalPrice.replace("$", "")) <= carsPrice
+      );
+    } else {
+      toast.warning("No search results, enter rentalPrice");
+    }
+
+    if (!!mileageFrom) {
+      filteredCars = filteredCars.filter(
+        (car) =>
+          Number(car.mileage) >= mileageFrom && Number(car.mileage) <= mileageTo
+      );
+    } else {
+      toast.warning("No search results, enter mileageFrom, mileageTo ");
+    }
+
+    return filteredCars;
+  };
+
+  console.log(allCars);
+  console.log(filterValue);
+  console.log(carsPrice);
+  console.log(mileageFrom);
+  console.log(mileageTo);
   return (
     <section>
       <StyledContainer>
         <StyledCarsList>
-          {cars?.map((car, index) => {
+          {(filterValue || carsPrice || mileageFrom || mileageTo
+            ? getFilteredCars()
+            : cars
+          ).map((car, index) => {
             const mileage = koma(car.mileage);
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (

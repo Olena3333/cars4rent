@@ -19,7 +19,7 @@ export const filterSlice = createSlice({
       state.filter.make = action.payload;
     },
     setPriceFilter: (state, action) => {
-      state.filter.price = Number(action.payload);
+      state.filter.price = action.payload;
     },
     setMileageFrom: (state, action) => {
       state.filter.mileageFrom = Number(action.payload);

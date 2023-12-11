@@ -17,7 +17,7 @@ export const StyledForm = styled.form`
   display: flex;
   gap: 18px;
   justify-content: space-between;
-  max-width: 860px;
+  max-width: 960px;
   margin-bottom: 50px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -36,7 +36,7 @@ export const StyledInputDiv = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  max-width: 160px;
+  width: 160px;
   padding: 14px 75px 14px 24px;
   height: 64px;
   font-size: 18px;
@@ -67,7 +67,6 @@ export const StyledSearchButton = styled.button`
   background: #3470ff;
   border: none;
   color: white;
-  transition: background 0.3s ease;
   background: var(--accent-color);
   &:hover,
   &:focus {

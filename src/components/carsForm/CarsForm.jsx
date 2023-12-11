@@ -2,20 +2,20 @@ import brands from "../../helpers/makes.json";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { setFilter, setPriceFilter } from "../../redux/sliceFilter";
-import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
+
 import { Controller, useForm } from "react-hook-form";
 
-import { StyledContainer } from "../../helpers/Container.styled";
 import {
   StyledButtonContainer,
+  StyledContainer,
   StyledForm,
   StyledFormDiv,
   StyledInput,
-  StyledInput2Div,
   StyledInputDiv,
   StyledLabel,
   StyledSearchButton,
 } from "./CarsForm.styled";
+import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
 
 const customStyles = {
   singleValue: (provided) => ({
@@ -50,6 +50,32 @@ const customStyles = {
 const CarsForm = () => {
   const dispatch = useDispatch();
   const { control, register, handleSubmit, reset } = useForm();
+  //   const onSubmit = (data) => {
+  //     // if (data.brand === undefined) {
+  //     //   data.brand = " ";
+  //     // }
+  //     // if (data.price === undefined) {
+  //     //   data.brand = " ";
+  //     // }
+  //     // if (data.from === undefined) {
+  //     //   data.brand = "1 ";
+  //     // }
+  //     // if (data.to === undefined) {
+  //     //   data.brand = "2 ";
+  //     }
+  //     console.log(data.from);
+  //     console.log(data.to);
+  //     const removeCommas = (numberString) => {
+  //       return numberString.replace(/,/g, "");
+  //   };
+  //     const from = removeCommas(data.from);
+  //     const to = removeCommas(data.to);
+  //     dispatch(setFilter(data.brand.value));
+  //     dispatch(setPriceFilter(data.price?.value));
+  //     dispatch(selectedMileageFrom(from));
+  //     dispatch(selectedMileageTo(to));
+  //     reset();
+  // };
   const onSubmit = (data) => {
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
@@ -65,8 +91,8 @@ const CarsForm = () => {
     return optionsArray;
   };
   const optionsPrice = makePriceOptions();
-  const brandOptions = brands.map((brand, index) => ({
-    value: index,
+  const brandOptions = brands.map((brand) => ({
+    value: brand,
     label: brand,
   }));
 
