@@ -43,16 +43,11 @@ const Cars = () => {
   const [like, setLike] = useState(null);
   const favorites = useSelector(selectFavorites);
 
-  const allCars = useSelector(selectAllCars);
+  // const allCars = useSelector(selectAllCars);
   const carsPrice = useSelector(selectedPrice);
   const mileageFrom = useSelector(selectedMileageFrom);
   const mileageTo = useSelector(selectedMileageTo);
   const filterValue = useSelector(selectsFilteredMake);
-
-  useEffect(() => {
-    dispatch(fetchAllCarsThunk());
-  }, []);
-  console.log(allCars);
 
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
@@ -75,8 +70,13 @@ const Cars = () => {
     return wordWichKoma;
   };
 
+  // useEffect(() => {
+  //   dispatch(fetchAllCarsThunk());
+  // }, []);
+  // console.log(allCars);
+
   const getFilteredCars = () => {
-    let filteredCars = allCars.slice();
+    let filteredCars = cars.slice();
     if (!!filterValue) {
       filteredCars = filteredCars.filter((car) =>
         car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
@@ -104,12 +104,12 @@ const Cars = () => {
 
     return filteredCars;
   };
-  console.log(allCars);
-  console.log(getFilteredCars(allCars));
-  console.log(filterValue);
-  console.log(carsPrice);
-  console.log(mileageFrom);
-  console.log(mileageTo);
+  // console.log(allCars);
+  // console.log(getFilteredCars(allCars));
+  // console.log(filterValue);
+  // console.log(carsPrice);
+  // console.log(mileageFrom);
+  // console.log(mileageTo);
   return (
     <section>
       <StyledContainer>

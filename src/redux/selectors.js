@@ -12,5 +12,7 @@ export const selectsFilteredMake = (state) => state.filter.filter.make;
 // export const selectedMileageTo = (state) => state.filter.filter?.mileageTo;
 
 export const selectedMileageFrom = (state) =>
-  state.filter.filter?.mileageFrom || 0;
-export const selectedMileageTo = (state) => state.filter.filter?.mileageTo || 0;
+  state.filter?.filter?.mileageFrom || 0;
+
+export const selectedMileageTo = (state) =>
+  state.filter?.filter?.mileageTo || 0;

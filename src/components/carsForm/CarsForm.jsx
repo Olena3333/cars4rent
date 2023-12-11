@@ -1,6 +1,6 @@
 import brands from "../../helpers/makes.json";
 import Select from "react-select";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFilter, setPriceFilter } from "../../redux/sliceFilter";
 
 import { Controller, useForm } from "react-hook-form";
@@ -15,7 +15,13 @@ import {
   StyledLabel,
   StyledSearchButton,
 } from "./CarsForm.styled";
-import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
+import {
+  selectLoading,
+  selectedMileageFrom,
+  selectedMileageTo,
+  selectedPrice,
+  selectsFilteredMake,
+} from "../../redux/selectors";
 
 const customStyles = {
   singleValue: (provided) => ({
@@ -49,6 +55,14 @@ const customStyles = {
 
 const CarsForm = () => {
   const dispatch = useDispatch();
+  // const isLoading = useSelector(selectLoading);
+  // const make = useSelector(selectsFilteredMake);
+  // const price = useSelector(selectedPrice);
+  // const mileageFrom = useSelector(selectedMileageFrom);
+  // const mileageTo = useSelector(selectedMileageTo);
+  // console.log(make);
+  // console.log(price);
+
   const { control, register, handleSubmit, reset } = useForm();
   //   const onSubmit = (data) => {
   //     // if (data.brand === undefined) {
@@ -77,12 +91,21 @@ const CarsForm = () => {
   //     reset();
   // };
   const onSubmit = (data) => {
+    // if (event && event.type === "submit") {
+    //   event.preventDefault();
+
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
     dispatch(selectedMileageFrom(data.from.replace(/\D/g, "")));
     dispatch(selectedMileageTo(data.to.replace(/\D/g, "")));
     reset();
+    // }
+    // if (isLoading) {
+    //   dispatch(setFilter(0));
+    //   dispatch(setPriceFilter(0));
+    // }
   };
+
   const makePriceOptions = () => {
     const optionsArray = [];
     for (let i = 10; i < 210; i += 10) {
@@ -162,7 +185,12 @@ const CarsForm = () => {
         </StyledFormDiv>
 
         <StyledButtonContainer>
-          <StyledSearchButton type="submit">Search</StyledSearchButton>
+          <StyledSearchButton
+            type="submit"
+            // onSubmit={(e) => handleSubmit((data) => onSubmit(data, e))}
+          >
+            Search
+          </StyledSearchButton>
         </StyledButtonContainer>
       </StyledForm>
     </StyledContainer>

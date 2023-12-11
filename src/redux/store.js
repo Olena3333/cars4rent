@@ -24,6 +24,7 @@ const carsPersistConfig = {
 const filterPersistConfig = {
   key: "filter",
   storage,
+  blacklist: ["filter"],
 };
 
 const favoritesPersistConfig = {
