@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../hooks/useModal";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
@@ -31,6 +31,7 @@ import {
   StyledCarsList,
 } from "./Cars.styled";
 import { StyledContainer } from "../../helpers/Container.styled";
+import { fetchAllCarsThunk } from "../../redux/operations";
 
 const Cars = () => {
   const cars = useSelector(selectCars);
@@ -48,6 +49,11 @@ const Cars = () => {
   const mileageTo = useSelector(selectedMileageTo);
   const filterValue = useSelector(selectsFilteredMake);
 
+  useEffect(() => {
+    dispatch(fetchAllCarsThunk());
+  }, []);
+  console.log(allCars);
+
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
       (favoriteCar) => favoriteCar.id === car.id
@@ -62,14 +68,15 @@ const Cars = () => {
       setLike(index);
     }
   };
+
   const koma = (distance) => {
     const numberTuString = distance.toString();
     const wordWichKoma = numberTuString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return wordWichKoma;
   };
+
   const getFilteredCars = () => {
     let filteredCars = allCars.slice();
-
     if (!!filterValue) {
       filteredCars = filteredCars.filter((car) =>
         car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
@@ -97,8 +104,8 @@ const Cars = () => {
 
     return filteredCars;
   };
-
   console.log(allCars);
+  console.log(getFilteredCars(allCars));
   console.log(filterValue);
   console.log(carsPrice);
   console.log(mileageFrom);

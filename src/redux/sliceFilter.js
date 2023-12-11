@@ -9,6 +9,8 @@ const initialState = {
     mileageTo: 0,
   },
   allCar: [],
+  isLoading: false,
+  error: null,
 };
 
 export const filterSlice = createSlice({

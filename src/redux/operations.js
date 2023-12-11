@@ -32,7 +32,6 @@ export const fetchAllCarsThunk = createAsyncThunk(
           limit: 40,
         },
       });
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
