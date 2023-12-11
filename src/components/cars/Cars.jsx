@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../hooks/useModal";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
@@ -7,7 +7,6 @@ import {
   selectCars,
   selectFavorites,
   selectLoading,
-  selectAllCars,
 } from "../../redux/selectors";
 
 import sprite from "../../img/svg/sprite.svg";
@@ -27,18 +26,15 @@ import {
   StyledCarsList,
 } from "./Cars.styled";
 import { StyledContainer } from "../../helpers/Container.styled";
-import { fetchAllCarsThunk } from "../../redux/operations";
 
 const Cars = () => {
   const cars = useSelector(selectCars);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const { isOpen, openModal, closeModal } = useModal();
-
-  const allCar = useSelector(selectAllCars);
-
   const [like, setLike] = useState(null);
   const favorites = useSelector(selectFavorites);
+
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
       (favoriteCar) => favoriteCar.id === car.id
@@ -53,15 +49,18 @@ const Cars = () => {
       setLike(index);
     }
   };
-  // useEffect(() => {
-  //   dispatch(fetchAllCarsThunk());
-  // }, []);
-  // console.log(allCar);
+  const koma = (distance) => {
+    const numberTuString = distance.toString();
+    const wordWichKoma = numberTuString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return wordWichKoma;
+  };
+
   return (
     <section>
       <StyledContainer>
         <StyledCarsList>
           {cars?.map((car, index) => {
+            const mileage = koma(car.mileage);
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (
               <StyledCarImgContainer key={index}>
@@ -101,7 +100,7 @@ const Cars = () => {
                   <StyledCarTextt>{car.rentalCompany}</StyledCarTextt>
                   <StyledCarTextt>{car.type}</StyledCarTextt>
                   <StyledCarTextt>{car.make}</StyledCarTextt>
-                  <StyledCarTextt>{car.mileage}</StyledCarTextt>
+                  <StyledCarTextt>{mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
                 <StyledCarLearnMore onClick={() => openModal(car, index)}>
