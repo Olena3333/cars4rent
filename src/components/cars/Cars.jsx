@@ -79,9 +79,9 @@ const Cars = () => {
                 </StyledCarLike>
                 <StyledCarPriseDiv>
                   <div>
-                    <StyledCarTextTitle>{car.make}</StyledCarTextTitle>
+                    <StyledCarTextTitle>{car.make}&nbsp;</StyledCarTextTitle>
                     <StyledCarTextTitle>
-                      <span> {car.model}</span>,
+                      <span> {car.model}</span>,&nbsp;
                     </StyledCarTextTitle>
                     <StyledCarTextTitle>{car.year}</StyledCarTextTitle>
                   </div>

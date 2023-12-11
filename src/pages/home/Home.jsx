@@ -23,6 +23,76 @@ const Home = () => {
           <StyledRentalCarBtn type="button">Rental car</StyledRentalCarBtn>
         </a>
       </StyledSectionHero>
+
+      <StyledSectionForYou>
+        <StyledContainer>
+          <StyledAdvantagesTitle>It's available for you</StyledAdvantagesTitle>
+          <StyledForYouList>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-file-text2`} />
+              </StyledForYouIcon>
+              <h3>Car insurance</h3>
+              <p>
+                Travel safely – we handle all risks on our own. All of our cars
+                have valid insurance policies.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-location`} />
+              </StyledForYouIcon>
+              <h3>GPS-navigation</h3>
+              <p>
+                Never get lost and save time with the GPS-navigation device
+                which will calculate the best route for you.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-accessibility`} />
+              </StyledForYouIcon>
+              <h3>Child safety sea</h3>
+              <p>
+                Traveling with children? Take care of their safety with a
+                comfortable child seat.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-connection`} />
+              </StyledForYouIcon>
+              <h3>Wi-Fi</h3>
+              <p>
+                Stay connected and in touch with all goings-on with a high-speed
+                Wi-Fi Internet.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-wrench`} />
+              </StyledForYouIcon>
+              <h3>Concierge service</h3>
+              <p>
+                Round-the-clock support with any questions, be it hotel
+                reservations or finding the best tours and products.
+              </p>
+            </StyledForYouListItem>
+            <StyledForYouListItem>
+              <StyledForYouIcon width="40" height="40">
+                <use href={`${sprite}#icon-headphones`} />
+              </StyledForYouIcon>
+              <h3>Assistance on the road</h3>
+              <p>
+                Need help replacing a broken wheel? The battery has to be
+                charged? Get in touch with us and our team will arrive to help
+                you on the road.
+              </p>
+            </StyledForYouListItem>
+          </StyledForYouList>
+        </StyledContainer>
+      </StyledSectionForYou>
+
       <StyledSectionAdvantages>
         <StyledContainer>
           <StyledAdvantagesTitle>Our Advantages</StyledAdvantagesTitle>
@@ -112,75 +182,6 @@ const Home = () => {
           </StyledAdvantagesList>
         </StyledContainer>
       </StyledSectionAdvantages>
-
-      <StyledSectionForYou>
-        <StyledContainer>
-          <StyledAdvantagesTitle>It's available for you</StyledAdvantagesTitle>
-          <StyledForYouList>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-file-text2`} />
-              </StyledForYouIcon>
-              <h3>Car insurance</h3>
-              <p>
-                Travel safely – we handle all risks on our own. All of our cars
-                have valid insurance policies.
-              </p>
-            </StyledForYouListItem>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-location`} />
-              </StyledForYouIcon>
-              <h3>GPS-navigation</h3>
-              <p>
-                Never get lost and save time with the GPS-navigation device
-                which will calculate the best route for you.
-              </p>
-            </StyledForYouListItem>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-accessibility`} />
-              </StyledForYouIcon>
-              <h3>Child safety sea</h3>
-              <p>
-                Traveling with children? Take care of their safety with a
-                comfortable child seat.
-              </p>
-            </StyledForYouListItem>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-connection`} />
-              </StyledForYouIcon>
-              <h3>Wi-Fi</h3>
-              <p>
-                Stay connected and in touch with all goings-on with a high-speed
-                Wi-Fi Internet.
-              </p>
-            </StyledForYouListItem>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-wrench`} />
-              </StyledForYouIcon>
-              <h3>Concierge service</h3>
-              <p>
-                Round-the-clock support with any questions, be it hotel
-                reservations or finding the best tours and products.
-              </p>
-            </StyledForYouListItem>
-            <StyledForYouListItem>
-              <StyledForYouIcon width="40" height="40">
-                <use href={`${sprite}#icon-headphones`} />
-              </StyledForYouIcon>
-              <h3>Assistance on the road</h3>
-              <p>
-                Need help replacing a broken wheel? The battery has to be
-                charged? Get in touch with us and our team will arrive to help
-                you on the road.
-              </p>
-            </StyledForYouListItem>
-          </StyledForYouList>
-        </StyledContainer>
-      </StyledSectionForYou>
     </div>
   );
 };
