@@ -27,26 +27,31 @@ export const StyledForm = styled.form`
 
 export const StyledInputDiv = styled.div`
   display: flex;
-  column-gap: 2px;
+  gap: 6px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 `;
 
 export const StyledInput = styled.input`
   max-width: 160px;
   padding: 14px 75px 14px 24px;
   height: 64px;
-  font-family: Manrope;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 1.13;
   border-radius: 14px;
   background: #f7f7fb;
   border: none;
   outline: none;
+  margin: 20px;
+  @media screen and (max-width: 768px) {
+    margin: 0px;
+  }
 `;
 export const StyledLabel = styled.label`
   color: #8a8a89;
-  font-family: Manrope;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -63,8 +68,10 @@ export const StyledSearchButton = styled.button`
   border: none;
   color: white;
   transition: background 0.3s ease;
-  &:hover {
-    background: #0b44cd;
+  background: var(--accent-color);
+  &:hover,
+  &:focus {
+    background: var(--accent-color-hover);
   }
 `;
 

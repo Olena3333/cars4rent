@@ -11,6 +11,7 @@ import {
   StyledForm,
   StyledFormDiv,
   StyledInput,
+  StyledInput2Div,
   StyledInputDiv,
   StyledLabel,
   StyledSearchButton,
