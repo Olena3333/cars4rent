@@ -9,6 +9,7 @@ const initialState = {
   liked: false,
   isModalOpen: false,
   selectedCar: null,
+  allCar: [],
 };
 
 const carsSlice = createSlice({
@@ -34,4 +35,4 @@ const carsSlice = createSlice({
 });
 
 export const carsReducer = carsSlice.reducer;
-export const { setAllCars, setFilter } = carsSlice.actions;
+export const { setCars } = carsSlice.actions;

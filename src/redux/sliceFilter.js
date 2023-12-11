@@ -1,41 +1,57 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCarsThunk } from "./operations";
+import { fetchAllCarsThunk } from "./operations";
 
 const initialState = {
   filter: {
-    name: "",
-    price: "",
-    from: null,
-    to: null,
+    make: "",
+    price: 0,
+    mileageFrom: 0,
+    mileageTo: 0,
   },
-  startData: [],
+  allCar: [],
 };
 
 export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    setStartData: (state) => {
-      state.startData = fetchCarsThunk;
+    setFilter: (state, action) => {
+      state.filter.make = action.payload;
     },
-    setFilter: (state, { payload }) => {
-      state.filter = payload;
+    setPriceFilter: (state, action) => {
+      state.filter.price = Number(action.payload);
     },
-    setName: (state, { payload }) => {
-      state.filter.name = payload;
+    setMileageFrom: (state, action) => {
+      state.filter.mileageFrom = Number(action.payload);
     },
-    setPrice: (state, { payload }) => {
-      state.filter.price = payload;
+    setMileageTo: (state, action) => {
+      state.filter.mileageTo = Number(action.payload);
     },
-    setFrom: (state, { payload }) => {
-      state.filter.from = payload;
-    },
-    setTo: (state, { payload }) => {
-      state.filter.to = payload;
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAllCarsThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.allCar = action.payload;
+      })
+      .addCase(fetchAllCarsThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setStartData, setFilter, setName, setPrice, setFrom, setTo } =
-  filterSlice.actions;
+export const {
+  setFilter,
+  setPriceFilter,
+  setMileageFrom,
+  setMileageTo,
+  setAllCars,
+} = filterSlice.actions;
+
 export const filterReducer = filterSlice.reducer;

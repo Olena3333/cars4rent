@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--Text-halb);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,8 +34,8 @@ export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  max-width: 100%;
+
   z-index: 1200;
 `;
 

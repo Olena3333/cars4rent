@@ -1,13 +1,15 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useModal } from "../hooks/useModal";
+import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import {
   selectCars,
   selectFavorites,
   selectLoading,
+  selectAllCars,
 } from "../../redux/selectors";
-import { useModal } from "../hooks/useModal";
-import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
+
 import sprite from "../../img/svg/sprite.svg";
 import LoadMore from "../loadMore/LoadMore";
 import Modal from "../modal/Modal";
@@ -25,12 +27,15 @@ import {
   StyledCarsList,
 } from "./Cars.styled";
 import { StyledContainer } from "../../helpers/Container.styled";
+import { fetchAllCarsThunk } from "../../redux/operations";
 
 const Cars = () => {
   const cars = useSelector(selectCars);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const { isOpen, openModal, closeModal } = useModal();
+
+  const allCar = useSelector(selectAllCars);
 
   const [like, setLike] = useState(null);
   const favorites = useSelector(selectFavorites);
@@ -48,7 +53,10 @@ const Cars = () => {
       setLike(index);
     }
   };
-
+  // useEffect(() => {
+  //   dispatch(fetchAllCarsThunk());
+  // }, []);
+  // console.log(allCar);
   return (
     <section>
       <StyledContainer>
@@ -62,10 +70,9 @@ const Cars = () => {
                 ) : (
                   <StyledCarImgt src={car.img} alt={car.make} height="268px" />
                 )}
-                height="268px" />
                 <StyledCarLike
-                  width="18"
-                  height="18"
+                  width="24"
+                  height="24"
                   $like={isFavorite || like === index}
                   onClick={() => toggleFavoritesHandler(car, index)}
                 >

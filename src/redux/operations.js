@@ -23,18 +23,19 @@ export const fetchCarsThunk = createAsyncThunk(
 );
 
 export const fetchAllCarsThunk = createAsyncThunk(
-  "fetchPage",
-  async ({ page = 1, limit = 50 }, thunkApi) => {
+  "fetchAllPage",
+  async (_, thunkApi) => {
     try {
       const { data } = await advertsCarApi.get("/Advert", {
         params: {
-          page: page,
-          limit: limit,
+          page: 1,
+          limit: 40,
         },
       });
       console.log(data);
       return data;
     } catch (error) {
+      console.log(error);
       return thunkApi.rejectWithValue(error.message);
     }
   }
