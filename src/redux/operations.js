@@ -21,21 +21,3 @@ export const fetchCarsThunk = createAsyncThunk(
     }
   }
 );
-
-export const fetchAllCarsThunk = createAsyncThunk(
-  "fetchAllPage",
-  async (_, thunkApi) => {
-    try {
-      const { data } = await advertsCarApi.get("/Advert", {
-        params: {
-          page: 1,
-          limit: 40,
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);

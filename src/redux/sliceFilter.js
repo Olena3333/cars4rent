@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCarsThunk } from "./operations";
 
 const initialState = {
   filter: {
@@ -30,30 +29,9 @@ export const filterSlice = createSlice({
       state.filter.mileageTo = Number(action.payload);
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchAllCarsThunk.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchAllCarsThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.allCar = action.payload;
-      })
-      .addCase(fetchAllCarsThunk.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
-  },
 });
 
-export const {
-  setFilter,
-  setPriceFilter,
-  setMileageFrom,
-  setMileageTo,
-  setAllCars,
-} = filterSlice.actions;
+export const { setFilter, setPriceFilter, setMileageFrom, setMileageTo } =
+  filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

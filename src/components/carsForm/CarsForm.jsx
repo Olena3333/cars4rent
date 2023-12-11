@@ -1,6 +1,6 @@
 import brands from "../../helpers/makes.json";
 import Select from "react-select";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setFilter, setPriceFilter } from "../../redux/sliceFilter";
 
 import { Controller, useForm } from "react-hook-form";
@@ -15,13 +15,7 @@ import {
   StyledLabel,
   StyledSearchButton,
 } from "./CarsForm.styled";
-import {
-  selectLoading,
-  selectedMileageFrom,
-  selectedMileageTo,
-  selectedPrice,
-  selectsFilteredMake,
-} from "../../redux/selectors";
+import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
 
 const customStyles = {
   singleValue: (provided) => ({
@@ -55,55 +49,13 @@ const customStyles = {
 
 const CarsForm = () => {
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectLoading);
-  // const make = useSelector(selectsFilteredMake);
-  // const price = useSelector(selectedPrice);
-  // const mileageFrom = useSelector(selectedMileageFrom);
-  // const mileageTo = useSelector(selectedMileageTo);
-  // console.log(make);
-  // console.log(price);
-
   const { control, register, handleSubmit, reset } = useForm();
-  //   const onSubmit = (data) => {
-  //     // if (data.brand === undefined) {
-  //     //   data.brand = " ";
-  //     // }
-  //     // if (data.price === undefined) {
-  //     //   data.brand = " ";
-  //     // }
-  //     // if (data.from === undefined) {
-  //     //   data.brand = "1 ";
-  //     // }
-  //     // if (data.to === undefined) {
-  //     //   data.brand = "2 ";
-  //     }
-  //     console.log(data.from);
-  //     console.log(data.to);
-  //     const removeCommas = (numberString) => {
-  //       return numberString.replace(/,/g, "");
-  //   };
-  //     const from = removeCommas(data.from);
-  //     const to = removeCommas(data.to);
-  //     dispatch(setFilter(data.brand.value));
-  //     dispatch(setPriceFilter(data.price?.value));
-  //     dispatch(selectedMileageFrom(from));
-  //     dispatch(selectedMileageTo(to));
-  //     reset();
-  // };
   const onSubmit = (data) => {
-    // if (event && event.type === "submit") {
-    //   event.preventDefault();
-
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
     dispatch(selectedMileageFrom(data.from.replace(/\D/g, "")));
     dispatch(selectedMileageTo(data.to.replace(/\D/g, "")));
     reset();
-    // }
-    // if (isLoading) {
-    //   dispatch(setFilter(0));
-    //   dispatch(setPriceFilter(0));
-    // }
   };
 
   const makePriceOptions = () => {
@@ -185,12 +137,7 @@ const CarsForm = () => {
         </StyledFormDiv>
 
         <StyledButtonContainer>
-          <StyledSearchButton
-            type="submit"
-            // onSubmit={(e) => handleSubmit((data) => onSubmit(data, e))}
-          >
-            Search
-          </StyledSearchButton>
+          <StyledSearchButton type="submit">Search</StyledSearchButton>
         </StyledButtonContainer>
       </StyledForm>
     </StyledContainer>

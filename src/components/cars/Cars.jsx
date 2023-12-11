@@ -1,10 +1,9 @@
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../hooks/useModal";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import {
-  selectAllCars,
   selectCars,
   selectFavorites,
   selectLoading,
@@ -13,6 +12,7 @@ import {
   selectedPrice,
   selectsFilteredMake,
 } from "../../redux/selectors";
+import { StyledContainer } from "../../helpers/Container.styled";
 
 import sprite from "../../img/svg/sprite.svg";
 import LoadMore from "../loadMore/LoadMore";
@@ -30,8 +30,6 @@ import {
   StyledCarlInfoDiv,
   StyledCarsList,
 } from "./Cars.styled";
-import { StyledContainer } from "../../helpers/Container.styled";
-import { fetchAllCarsThunk } from "../../redux/operations";
 
 const Cars = () => {
   const cars = useSelector(selectCars);
@@ -69,15 +67,9 @@ const Cars = () => {
     const wordWichKoma = numberTuString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return wordWichKoma;
   };
-
-  // useEffect(() => {
-  //   dispatch(fetchAllCarsThunk());
-  // }, []);
-  // console.log(allCars);
-
   const getFilteredCars = () => {
     let filteredCars = cars.slice();
-    if (!!filterValue) {
+    if (filterValue) {
       filteredCars = filteredCars.filter((car) =>
         car.make.toLowerCase().includes(filterValue.toLowerCase().trim())
       );
@@ -85,7 +77,7 @@ const Cars = () => {
       toast.warning("No search results, enter make");
     }
 
-    if (!!carsPrice) {
+    if (carsPrice) {
       filteredCars = filteredCars.filter(
         (car) => parseFloat(car.rentalPrice.replace("$", "")) <= carsPrice
       );
@@ -93,7 +85,7 @@ const Cars = () => {
       toast.warning("No search results, enter rentalPrice");
     }
 
-    if (!!mileageFrom) {
+    if (mileageFrom) {
       filteredCars = filteredCars.filter(
         (car) =>
           Number(car.mileage) >= mileageFrom && Number(car.mileage) <= mileageTo
@@ -101,15 +93,9 @@ const Cars = () => {
     } else {
       toast.warning("No search results, enter mileageFrom, mileageTo ");
     }
-
     return filteredCars;
   };
-  // console.log(allCars);
-  // console.log(getFilteredCars(allCars));
-  // console.log(filterValue);
-  // console.log(carsPrice);
-  // console.log(mileageFrom);
-  // console.log(mileageTo);
+
   return (
     <section>
       <StyledContainer>
