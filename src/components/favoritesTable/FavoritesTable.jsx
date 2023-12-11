@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectFavorites } from "../../redux/selectors";
+import { selectFavorites, selectLoading } from "../../redux/selectors";
 import { StyledContainer } from "../../helpers/Container.styled";
 import {
   StyledCarImgContainer,
   StyledCarImgt,
+  StyledCarLearnMore,
   StyledCarLike,
   StyledCarPriseDiv,
   StyledCarTextTitle,
@@ -17,15 +18,17 @@ import { useState } from "react";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
 import sprite from "../../img/svg/sprite.svg";
 import { toast } from "react-toastify";
+import { useModal } from "../hooks/useModal";
+import Modal from "../modal/Modal";
+import Loader from "../loading/Loader";
 
-export const FavoritesTable = () => {
+const FavoritesTable = () => {
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  // const { isOpen, openModal, closeModal } = useModal();
-
+  const { isOpen, openModal, closeModal } = useModal();
+  const isLoading = useSelector(selectLoading);
   const [like, setLike] = useState(null);
-
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
       (favoriteCar) => favoriteCar.id === car.id
@@ -40,7 +43,7 @@ export const FavoritesTable = () => {
     }
   };
   if (!favorites.length) {
-    toast.info("Add cars in favorites!");
+    toast.info("Add cars to favorites!");
     return <StyledFavoritText>You do not have favorites</StyledFavoritText>;
   }
 
@@ -52,7 +55,11 @@ export const FavoritesTable = () => {
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (
               <StyledCarImgContainer key={index}>
-                <StyledCarImgt src={car.img} alt={car.make} height="268px" />
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <StyledCarImgt src={car.img} alt={car.make} height="268px" />
+                )}
                 <StyledCarLike
                   width="18"
                   height="18"
@@ -87,16 +94,12 @@ export const FavoritesTable = () => {
                   <StyledCarTextt>{car.mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
-
-                {/* <StyledCarLearnMore onClick={openModal}>
+                <StyledCarLearnMore onClick={() => openModal(car, index)}>
                   Learn more
                 </StyledCarLearnMore>
                 {isOpen ? (
-                  <Modal
-                    // children={<ModalCar closeModal={closeModal} />}
-                    closeModal={closeModal}
-                  />
-                ) : null} */}
+                  <Modal closeModal={closeModal} car={car} index={index} />
+                ) : null}
               </StyledCarImgContainer>
             );
           })}
@@ -105,3 +108,4 @@ export const FavoritesTable = () => {
     </section>
   );
 };
+export default FavoritesTable;

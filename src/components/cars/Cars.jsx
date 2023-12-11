@@ -1,7 +1,17 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCars, selectFavorites } from "../../redux/selectors";
+import {
+  selectCars,
+  selectFavorites,
+  selectLoading,
+} from "../../redux/selectors";
+import { useModal } from "../hooks/useModal";
+import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
+import sprite from "../../img/svg/sprite.svg";
+import LoadMore from "../loadMore/LoadMore";
+import Modal from "../modal/Modal";
+import Loader from "../loading/Loader";
 
 import {
   StyledCarImgContainer,
@@ -16,18 +26,10 @@ import {
 } from "./Cars.styled";
 import { StyledContainer } from "../../helpers/Container.styled";
 
-import sprite from "../../img/svg/sprite.svg";
-import LoadMore from "../loadMore/LoadMore";
-import Modal from "../modal/Modal";
-import { useModal } from "../hooks/useModal";
-
-import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorits";
-import { toast } from "react-toastify";
-
 const Cars = () => {
   const cars = useSelector(selectCars);
   const dispatch = useDispatch();
-
+  const isLoading = useSelector(selectLoading);
   const { isOpen, openModal, closeModal } = useModal();
 
   const [like, setLike] = useState(null);
@@ -55,7 +57,12 @@ const Cars = () => {
             const isFavorite = favorites.some((favCar) => favCar.id === car.id);
             return (
               <StyledCarImgContainer key={index}>
-                <StyledCarImgt src={car.img} alt={car.make} height="268px" />
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <StyledCarImgt src={car.img} alt={car.make} height="268px" />
+                )}
+                height="268px" />
                 <StyledCarLike
                   width="18"
                   height="18"

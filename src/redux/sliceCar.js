@@ -14,11 +14,7 @@ const initialState = {
 const carsSlice = createSlice({
   name: "cars",
   initialState,
-  reducers: {
-    // setOpenModal: (state, action) => {
-    //   state.isModalOpen = action.payload;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCarsThunk.pending, (state) => {
@@ -38,5 +34,4 @@ const carsSlice = createSlice({
 });
 
 export const carsReducer = carsSlice.reducer;
-export const { setCars, setId, setLoading, setError, setAllCars, setFilter } =
-  carsSlice.actions;
+export const { setAllCars, setFilter } = carsSlice.actions;

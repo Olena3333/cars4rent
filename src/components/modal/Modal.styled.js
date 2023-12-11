@@ -72,7 +72,6 @@ export const StyledRentalCarBtn = styled.button`
 `;
 export const ModalContainer = styled.ul`
   display: flex;
-  /* margin-top: -35px; */
 `;
 export const CarImage = styled.img`
   object-fit: cover;
