@@ -35,13 +35,9 @@ const Cars = () => {
   const cars = useSelector(selectCars);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
-
   const { isOpen, openModal, closeModal } = useModal();
-
   const [like, setLike] = useState(null);
   const favorites = useSelector(selectFavorites);
-
-  // const allCars = useSelector(selectAllCars);
   const carsPrice = useSelector(selectedPrice);
   const mileageFrom = useSelector(selectedMileageFrom);
   const mileageTo = useSelector(selectedMileageTo);

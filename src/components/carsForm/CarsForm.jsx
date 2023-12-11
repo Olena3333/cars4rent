@@ -1,7 +1,12 @@
 import brands from "../../helpers/makes.json";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
-import { setFilter, setPriceFilter } from "../../redux/sliceFilter";
+import {
+  setFilter,
+  setMileageFrom,
+  setMileageTo,
+  setPriceFilter,
+} from "../../redux/sliceFilter";
 
 import { Controller, useForm } from "react-hook-form";
 
@@ -15,7 +20,6 @@ import {
   StyledLabel,
   StyledSearchButton,
 } from "./CarsForm.styled";
-import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
 
 const customStyles = {
   singleValue: (provided) => ({
@@ -53,8 +57,8 @@ const CarsForm = () => {
   const onSubmit = (data) => {
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
-    dispatch(selectedMileageFrom(data.from.replace(/\D/g, "")));
-    dispatch(selectedMileageTo(data.to.replace(/\D/g, "")));
+    dispatch(setMileageFrom(data.from.replace(/\D/g, "")));
+    dispatch(setMileageTo(data.to.replace(/\D/g, "")));
     reset();
   };
 
