@@ -1,34 +1,30 @@
 import brands from "../../helpers/makes.json";
-
-import { useDispatch } from "react-redux";
-
 import Select from "react-select";
-
+import { useDispatch } from "react-redux";
 import { setFilter, setPriceFilter } from "../../redux/sliceFilter";
 import { selectedMileageFrom, selectedMileageTo } from "../../redux/selectors";
-import {
-  ButtonContainer,
-  Container,
-  Form,
-  FormDiv,
-  Input,
-  InputDiv,
-  Label,
-  SearchButton,
-} from "./CarsForm.styled";
 import { Controller, useForm } from "react-hook-form";
 
+import { StyledContainer } from "../../helpers/Container.styled";
+import {
+  StyledButtonContainer,
+  StyledForm,
+  StyledFormDiv,
+  StyledInput,
+  StyledInputDiv,
+  StyledLabel,
+  StyledSearchButton,
+} from "./CarsForm.styled";
+
 const customStyles = {
-  singleValue: (provided, state) => ({
+  singleValue: (provided) => ({
     ...provided,
     color: "#171612",
-    fontFamily: "Manrope",
     fontSize: "18px",
-    fontStyle: "normal",
     fontWeight: 500,
     lineHeight: "20px",
   }),
-  control: (provided, state) => ({
+  control: (provided) => ({
     ...provided,
     padding: "14px 16px 14px 18px ",
     boxShadow: "none",
@@ -36,27 +32,23 @@ const customStyles = {
     borderRadius: "14px",
     backgroundColor: "#F7F7FB",
   }),
-  placeholder: (provided, state) => ({
+  placeholder: (provided) => ({
     ...provided,
-    color: "#121417",
-    fontFamily: "Manrope",
+    color: "var(--Text)",
     fontSize: "18px",
-    fontStyle: "normal",
     fontWeight: 500,
     lineHeight: "20px",
   }),
-
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: "#ffffff",
+    backgroundColor: "var(---White)",
     color: state.isFocused ? "#000000" : "rgba(18, 20, 23, 0.20)",
   }),
 };
 
 const CarsForm = () => {
-  const { control, register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
-
+  const { control, register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
@@ -64,27 +56,24 @@ const CarsForm = () => {
     dispatch(selectedMileageTo(data.to.replace(/\D/g, "")));
     reset();
   };
-
   const makePriceOptions = () => {
     const optionsArray = [];
-    for (let i = 10; i < 500; i += 10) {
+    for (let i = 10; i < 210; i += 10) {
       optionsArray.push({ value: i, label: `${i} $` });
     }
     return optionsArray;
   };
-
   const optionsPrice = makePriceOptions();
-
   const brandOptions = brands.map((brand, index) => ({
-    value: brand,
+    value: index,
     label: brand,
   }));
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormDiv>
-          <Label htmlFor="carBrand">Car brand</Label>
+    <StyledContainer>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <StyledFormDiv>
+          <StyledLabel htmlFor="carBrand">Car brand</StyledLabel>
           <Controller
             name="brand"
             control={control}
@@ -98,9 +87,9 @@ const CarsForm = () => {
               />
             )}
           />
-        </FormDiv>
-        <FormDiv>
-          <Label htmlFor="pricePerHour">Price/ 1 hour</Label>
+        </StyledFormDiv>
+        <StyledFormDiv>
+          <StyledLabel htmlFor="pricePerHour">Price/ 1 hour</StyledLabel>
           <Controller
             name="price"
             control={control}
@@ -114,11 +103,11 @@ const CarsForm = () => {
               />
             )}
           />
-        </FormDiv>
-        <FormDiv>
-          <Label>Car mileage / km</Label>
-          <InputDiv>
-            <Input
+        </StyledFormDiv>
+        <StyledFormDiv>
+          <StyledLabel>Car mileage / km</StyledLabel>
+          <StyledInputDiv>
+            <StyledInput
               {...register("from", {
                 onChange: (e) => {
                   e.target.value = e.target.value
@@ -130,7 +119,7 @@ const CarsForm = () => {
               type="text"
               maxLength={8}
             />
-            <Input
+            <StyledInput
               {...register("to", {
                 onChange: (e) => {
                   e.target.value = e.target.value
@@ -142,14 +131,14 @@ const CarsForm = () => {
               type="text"
               maxLength={8}
             />
-          </InputDiv>
-        </FormDiv>
+          </StyledInputDiv>
+        </StyledFormDiv>
 
-        <ButtonContainer>
-          <SearchButton type="submit">Search</SearchButton>
-        </ButtonContainer>
-      </Form>
-    </Container>
+        <StyledButtonContainer>
+          <StyledSearchButton type="submit">Search</StyledSearchButton>
+        </StyledButtonContainer>
+      </StyledForm>
+    </StyledContainer>
   );
 };
 
