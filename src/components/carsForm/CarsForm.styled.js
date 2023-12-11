@@ -10,15 +10,16 @@ export const StyledContainer = styled.div`
 export const StyledFormDiv = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-height: 64px;
   gap: 8px;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
-  gap: 18px;
+  column-gap: 8px;
   justify-content: space-between;
-  max-width: 960px;
-  margin-bottom: 50px;
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
@@ -27,25 +28,25 @@ export const StyledForm = styled.form`
 
 export const StyledInputDiv = styled.div`
   display: flex;
-  gap: 6px;
+  gap: 8px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 80px;
   }
 `;
 
 export const StyledInput = styled.input`
-  width: 160px;
+  max-width: 160px;
   padding: 14px 75px 14px 24px;
-  height: 64px;
+  max-height: 64px;
   font-size: 18px;
   line-height: 1.13;
   border-radius: 14px;
   background: #f7f7fb;
   border: none;
   outline: none;
-  margin: 20px;
+
   @media screen and (max-width: 768px) {
     margin: 0px;
   }
