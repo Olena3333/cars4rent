@@ -10,7 +10,6 @@ export const StyledCarsList = styled.ul`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
-    /* align-items: start; */
   }
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);

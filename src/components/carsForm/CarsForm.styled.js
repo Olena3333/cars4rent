@@ -23,6 +23,7 @@ export const StyledForm = styled.form`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
+    gap: 30px;
   }
 `;
 
