@@ -1,11 +1,12 @@
 import { Route, Routes, Navigate } from "react-router";
-
-import Catalog from "./pages/catalog/Catalog";
-import Favorites from "./pages/favorites/Favorites";
-import Home from "./pages/home/Home";
 import { Suspense } from "react";
 import Layout from "./components/layout/Layout";
 import Loader from "./components/loading/Loader";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./pages/home/Home"));
+const Catalog = lazy(() => import("./pages/catalog/Catalog"));
+const Favorites = lazy(() => import("./pages/favorites/Favorites"));
 
 const App = () => {
   return (
