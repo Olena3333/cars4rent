@@ -42,6 +42,12 @@ const Cars = () => {
   const mileageFrom = useSelector(selectedMileageFrom);
   const mileageTo = useSelector(selectedMileageTo);
   const filterValue = useSelector(selectsFilteredMake);
+  const [selectedCar, setSelectedCar] = useState(null);
+
+  const openModalCar = (car, index) => {
+    setSelectedCar({ car, index });
+    openModal();
+  };
 
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
@@ -143,10 +149,10 @@ const Cars = () => {
                   <StyledCarTextt>{mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
-                <StyledCarLearnMore onClick={() => openModal(car, index)}>
+                <StyledCarLearnMore onClick={() => openModalCar(car, index)}>
                   Learn more
                 </StyledCarLearnMore>
-                {isOpen ? (
+                {isOpen && selectedCar && selectedCar.index === index ? (
                   <Modal closeModal={closeModal} car={car} index={index} />
                 ) : null}
               </StyledCarImgContainer>

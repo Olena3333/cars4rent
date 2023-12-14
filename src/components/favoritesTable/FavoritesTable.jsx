@@ -29,6 +29,13 @@ const FavoritesTable = () => {
   const { isOpen, openModal, closeModal } = useModal();
   const isLoading = useSelector(selectLoading);
   const [like, setLike] = useState(null);
+  const [selectedCar, setSelectedCar] = useState(null);
+
+  const openModalCar = (car, index) => {
+    setSelectedCar({ car, index });
+    openModal();
+  };
+
   const toggleFavoritesHandler = (car, index) => {
     const isFavorite = favorites.some(
       (favoriteCar) => favoriteCar.id === car.id
@@ -94,10 +101,10 @@ const FavoritesTable = () => {
                   <StyledCarTextt>{car.mileage}</StyledCarTextt>
                   <StyledCarTextt>{car.accessories[0]}</StyledCarTextt>
                 </StyledCarlInfoDiv>
-                <StyledCarLearnMore onClick={() => openModal(car, index)}>
+                <StyledCarLearnMore onClick={() => openModalCar(car, index)}>
                   Learn more
                 </StyledCarLearnMore>
-                {isOpen ? (
+                {isOpen && selectedCar && selectedCar.index === index ? (
                   <Modal closeModal={closeModal} car={car} index={index} />
                 ) : null}
               </StyledCarImgContainer>
