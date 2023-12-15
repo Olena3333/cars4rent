@@ -23,7 +23,10 @@ export const ContentWrapper = styled.div`
   width: 541px;
   height: 752px;
   @media (max-width: 767px) {
-    width: 335px;
+    max-width: 330px;
+    max-height: 100%
+    padding: 10px;
+   
   }
 `;
 
@@ -72,14 +75,18 @@ export const StyledRentalCarBtn = styled.button`
 `;
 export const ModalContainer = styled.ul`
   display: flex;
+  padding-left: 0px;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 export const CarImage = styled.img`
   object-fit: cover;
-  width: 469px;
-  height: 248px;
+  width: 100%;
+  height: 100%;
   border-radius: 14px;
   margin-bottom: 10px;
-  margin-top: 30px;
+  margin-top: 10px;
 `;
 
 export const SpanModal = styled.span`
@@ -149,6 +156,9 @@ export const AccessoriesSpan = styled.span`
   font-weight: 400;
   line-height: 18px;
   padding-right: 6px;
+  @media (max-width: 767px) {
+    display: flex;
+  }
 `;
 export const RentalConditionsList = styled.ul`
   padding-left: 0px;
@@ -167,12 +177,14 @@ export const RentalConditionsDiv = styled.div`
   gap: 8px;
   padding-left: 0px;
   margin-bottom: 8px;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 export const RentalConditionItem = styled.li`
   padding: 7px 14px;
   gap: 8px;
   border-radius: 35px;
-
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
